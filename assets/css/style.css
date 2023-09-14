@@ -1,30 +1,19 @@
 /*#region Utilities*/
 :root{
-   --bz-secondary-text: #9b9b9b;
    --bz-bg-up: #019788;
    --bz-bg-down: #dbdbd2;
    --bz-bar-up: #eaebeb;
    --bz-icon: #b1b0b0;
    --bz-notifications-banner: #8edbfd;
    --bz-bg-search-bar: #fbfafb;
-   --bz-bg-sidebar: #ffffff;
    --bz-bar-down: #f2efea;
    --bz-bar-down-icon: #6a7276;
    --bz-message-sent: #d5f8bb;
-   --bz-messagge-received: #ffffff;
    --bz-font: 'Roboto', sans-serif;
-   --bz-font-size: 0.6rem;
-   --bz-font-secondary-size: 0.5rem;
-   --bz-font-size-bigger: 0.75rem; 
-}
-
-body{
-   font-family: var(--bz-font);
-   font-size: var(--bz-font-size);
-}
-
-#app{
-   background: linear-gradient(180deg, var(--bz-bg-up) 15%, var(--bz-bg-down) 15%);
+   --bz-font-input-size: 0.6rem;
+   --bz-font-secondary-size: 0.6rem;
+   --bz-font-size: 0.75rem;
+   --bz-secondary-text: #9b9b9b;
 }
 
 main{
@@ -34,7 +23,7 @@ main{
 
 i{
    color: var(--bz-icon);
-   font-size: 1rem;
+   font-size: var(--bz-icon-size);
 }
 
 .secondary-font{
@@ -42,30 +31,14 @@ i{
    font-size: var(--bz-font-secondary-size);
 }
 
-.bigger-font{
-   font-size: var(--bz-font-size-bigger);
-}
-/*#endregion Utilities*/
-
-
-
-/*#region Main*/
-.bar-up{
-   background-color: var(--bz-bar-up);
-   height: 3rem;
+.font-size{
+   font-size: var(--bz-font-size);
+   font-weight: 500;
 }
 
-.left-side{
-   width: 35%;
-}
-
-.right-side{
-   width: 65%;
-}
-
-.avatar-self{
-   width: 2rem;
-   border-radius: 50%;
+.input-bar{
+   font-size: var(--bz-font-input-size);
+   font-weight: 500;
 }
 
 .avatar{
@@ -73,68 +46,80 @@ i{
    border-radius: 50%;
 }
 
-.chats-container{
-   height: calc(100% - 3rem);
-}
-
-.notification-bg{
-   background-color: var(--bz-notifications-banner);
-}
-
-.notification-font{
-   font-size: var(--bz-font-secondary-size);
-   color: #474747;
-}
-
-.notification-icon{
+.avatar.avatar-sm{
    width: 2rem;
-   aspect-ratio: 1;
-   border-radius: 50%;
-   background-color: white;
 }
 
-.notification-bell{
-   color: var(--bz-notifications-banner);
-}
-
-.bg-search-bar{
-   background-color: var(--bz-bg-search-bar);
-}
-
-.search-bar, .text-bar{
-   font-size: var(--bz-font-size);
-   font-weight: 500;
-}
-
-.search-icon{
-   font-size: 0.8rem;
-   font-weight: bold;
-}
-
-.last-access{
-   color: var(--bz-secondary-text);
-   font-size: var(--bz-font-size);
-}
-
-.current-chat-container{
-   height: calc(100% - 3rem);
-}
-
-.current-chat{
-   background-image: url("/assets/img/mine.jpg");
-   height: 100%;
-}
-
-.bar-down{
+.bar-up{
+   background-color: var(--bz-bar-up);
    height: 3rem;
-   background-color: var(--bz-bar-down);
-
-   & i{
-      color: var(--bz-bar-down-icon);
-   }
 }
+/*#endregion Utilities*/
 
-.messagge-sent{
-   background-color: var(--bz-message-sent);
+
+
+/*#region Main*/
+#app{
+   font-family: var(--bz-font);
+   background: linear-gradient(180deg, var(--bz-bg-up) 15%, var(--bz-bg-down) 15%);
+   line-height: normal;
+
+   & .left-side{
+      width: 35%;
+   
+      & .chats-container{
+         height: calc(100% - 3rem);
+   
+         & .notification-bg{
+            background-color: var(--bz-notifications-banner);
+         
+            & .notification-icon-bg{
+               width: 2rem;
+               aspect-ratio: 1;
+               border-radius: 50%;
+               background-color: white;
+            
+               & i{
+                  color: var(--bz-notifications-banner);
+                  font-size: 0.85rem;
+               }
+            }
+         }
+   
+         & .bg-search-bar{
+            background-color: var(--bz-bg-search-bar);
+         
+            & i{
+               font-size: 0.8rem;
+            }
+         }
+      }
+   }
+
+   & .right-side{
+      width: 65%;
+
+      .current-chat-container{
+         height: calc(100% - 3rem);
+      
+         & .current-chat-bg{
+            background-image: url("/assets/img/mine.jpg");
+            height: 100%;
+
+            & .messagge-sent{
+               background-color: var(--bz-message-sent);
+            }
+         }
+
+         & .bar-down{
+            height: 3rem;
+            background-color: var(--bz-bar-down);
+         
+            & i{
+               color: var(--bz-bar-down-icon);
+            }
+         }
+      }
+   }
 }
 /*#endregion Main*/

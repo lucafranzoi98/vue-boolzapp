@@ -17,7 +17,7 @@
    <div id='app' class="vh-100 d-flex justify-content-center align-items-center">
 
       <!-- Interface container -->
-      <main class="bg-secondary d-flex">
+      <main class="d-flex">
 
          <!-- Left side -->
          <div class="left-side">
@@ -26,8 +26,8 @@
             <div class="bar-up d-flex justify-content-between align-items-center px-3 border-end border-1">
 
                <div class="d-flex align-items-center">
-                  <img src="./assets/img/avatar_io.jpg" alt="my-avatar" class="avatar-self me-2">
-                  <span class="bigger-font fw-medium">Sofia</span>
+                  <img src="./assets/img/avatar_io.jpg" class="avatar avatar-sm me-2">
+                  <span class="font-size">Sofia</span>
                </div>
 
                <div class="d-flex align-items-center">
@@ -42,21 +42,21 @@
                
                <!-- Notifications container -->
                <div class="d-flex px-3 py-2 align-items-center notification-bg">
-                  <div class="notification-icon d-flex justify-content-center align-items-center me-2">
-                     <i class="fa-solid fa-bell-slash notification-bell"></i>
+                  <div class="d-flex justify-content-center align-items-center me-2 notification-icon-bg">
+                     <i class="fa-solid fa-bell-slash"></i>
                   </div>
-                  <div>
-                     <div class="fw-bold">
+                  <div class="d-flex flex-column">
+                     <div class="font-size">
                         Ricevi notifiche di nuovi messaggi
                      </div>
-                     <a href="#" class="notification-font">Attiva notifiche desktop</a>
+                     <a href="#" class="secondary-font text-dark">Attiva notifiche desktop</a>
                   </div>
                </div>
 
                <!-- Search chat bar container -->
                <div class="input-group p-1 bg-search-bar">
-                  <span class="input-group-text bg-white rounded-0" id="search-bar"><i class="fa-solid fa-magnifying-glass search-icon"></i></span>
-                  <input type="text" class="form-control search-bar border-start-0 rounded-0" placeholder="Cerca o inizia una nuova chat">
+                  <span class="input-group-text bg-white rounded-0" id="search-bar"><i class="fa-solid fa-magnifying-glass"></i></span>
+                  <input type="text" class="form-control input-bar border-start-0 rounded-0" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
                <!-- Chats list container -->
@@ -65,9 +65,9 @@
                   <!-- Chat template -->
                   <div v-for="(contact, index) in contacts" class="border-top py-2 px-3 d-flex justify-content-between">
                      <div class="d-flex">
-                        <img :src="contact.avatar" class="avatar me-2" alt="">
+                        <img :src="contact.avatar" class="avatar me-2" :alt="contact.name">
                         <div>
-                           <div class="fw-medium bigger-font">{{contact.name}}</div>
+                           <div class="font-size mb-1">{{contact.name}}</div>
                            <div class="secondary-font">Ultimo messaggio inviato</div>
                         </div>
                      </div>
@@ -87,10 +87,10 @@
             <!-- Up bar -->
             <div class="bar-up d-flex justify-content-between align-items-center px-3">
                <div class="d-flex">
-                  <img src="./assets/img/avatar_1.jpg" class="avatar-self me-2" alt="avatar">
+                  <img src="./assets/img/avatar_1.jpg" class="avatar avatar-sm me-2" alt="avatar">
                   <div>
-                     <div class="fw-medium bigger-font">Michele</div>
-                     <div class="last-access">Ultimo accesso oggi alle 12:00</div>
+                     <div class="font-size mb-1">Michele</div>
+                     <div class="secondary-font">Ultimo accesso oggi alle 12:00</div>
                   </div>
                </div>
 
@@ -105,12 +105,12 @@
             <div class="d-flex flex-column current-chat-container">
 
                <!-- Chat with messagges -->
-               <div class="current-chat overflow-auto px-5">
+               <div class="current-chat-bg overflow-auto px-5">
 
                   <!-- Messagge Sent template -->
                   <div class="d-flex justify-content-end my-2">
                      <div class="messagge-sent rounded-2 d-flex justify-content-between">
-                        <div class="mx-3 my-2 bigger-font">
+                        <div class="mx-3 my-2 font-size fw-normal">
                            Messaggio inviato
                         </div>
                         <div class="secondary-font align-self-end me-1">
@@ -122,7 +122,7 @@
                   <!-- Messagge Received template -->
                   <div class="d-flex justify-content-start my-2">
                      <div class="bg-white rounded-2 d-flex justify-content-between">
-                        <div class="mx-3 my-2 bigger-font">
+                        <div class="mx-3 my-2 font-size fw-normal">
                            Messaggio ricevuto
                         </div>
                         <div class="secondary-font align-self-end me-1">
@@ -136,7 +136,7 @@
                <!-- Text area -->
                <div class="bar-down d-flex justify-content-around align-items-center">
                   <a href="#"><i class="fa-regular fa-face-smile"></i></a>
-                  <input type="text" id="messagge-input" class="form-control w-75 h-75 border-0 text-bar" placeholder="Scrivi un messaggio">
+                  <input type="text" id="messagge-input" class="form-control w-75 h-75 border-0 input-bar" placeholder="Scrivi un messaggio">
                   <a href="#"><i class="fa-solid fa-microphone"></i></a>
                </div>
             </div>
