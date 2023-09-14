@@ -63,102 +63,11 @@
                <div class="overflow-auto">
 
                   <!-- Chat template -->
-                  <div class="border-top py-2 px-3 d-flex justify-content-between">
+                  <div v-for="(contact, index) in contacts" class="border-top py-2 px-3 d-flex justify-content-between">
                      <div class="d-flex">
-                        <img src="./assets/img/avatar_1.jpg" class="avatar me-2" alt="avatar">
+                        <img :src="contact.avatar" class="avatar me-2" alt="">
                         <div>
-                           <div class="fw-medium bigger-font">Michele</div>
-                           <div class="secondary-font">Ultimo messaggio inviato</div>
-                        </div>
-                     </div>
-                     <div class="secondary-font">
-                        12:00
-                     </div>                     
-                  </div>
-
-                  <div class="border-top py-2 px-3 d-flex justify-content-between">
-                     <div class="d-flex">
-                        <img src="./assets/img/avatar_2.jpg" class="avatar me-2" alt="avatar">
-                        <div>
-                           <div class="fw-medium bigger-font">Fabio</div>
-                           <div class="secondary-font">Ultimo messaggio inviato</div>
-                        </div>
-                     </div>
-                     <div class="secondary-font">
-                        12:00
-                     </div>                     
-                  </div>
-
-                  <div class="border-top py-2 px-3 d-flex justify-content-between">
-                     <div class="d-flex">
-                        <img src="./assets/img/avatar_3.jpg" class="avatar me-2" alt="avatar">
-                        <div>
-                           <div class="fw-medium bigger-font">Samuele</div>
-                           <div class="secondary-font">Ultimo messaggio inviato</div>
-                        </div>
-                     </div>
-                     <div class="secondary-font">
-                        12:00
-                     </div>                     
-                  </div>
-
-                  <div class="border-top py-2 px-3 d-flex justify-content-between">
-                     <div class="d-flex">
-                        <img src="./assets/img/avatar_4.jpg" class="avatar me-2" alt="avatar">
-                        <div>
-                           <div class="fw-medium bigger-font">Alessandro B.</div>
-                           <div class="secondary-font">Ultimo messaggio inviato</div>
-                        </div>
-                     </div>
-                     <div class="secondary-font">
-                        12:00
-                     </div>                     
-                  </div>
-
-                  <div class="border-top py-2 px-3 d-flex justify-content-between">
-                     <div class="d-flex">
-                        <img src="./assets/img/avatar_5.jpg" class="avatar me-2" alt="avatar">
-                        <div>
-                           <div class="fw-medium bigger-font">Alessandro L.</div>
-                           <div class="secondary-font">Ultimo messaggio inviato</div>
-                        </div>
-                     </div>
-                     <div class="secondary-font">
-                        12:00
-                     </div>                     
-                  </div>
-
-                  <div class="border-top py-2 px-3 d-flex justify-content-between">
-                     <div class="d-flex">
-                        <img src="./assets/img/avatar_6.jpg" class="avatar me-2" alt="avatar">
-                        <div>
-                           <div class="fw-medium bigger-font">Claudia</div>
-                           <div class="secondary-font">Ultimo messaggio inviato</div>
-                        </div>
-                     </div>
-                     <div class="secondary-font">
-                        12:00
-                     </div>                     
-                  </div>
-
-                  <div class="border-top py-2 px-3 d-flex justify-content-between">
-                     <div class="d-flex">
-                        <img src="./assets/img/avatar_7.jpg" class="avatar me-2" alt="avatar">
-                        <div>
-                           <div class="fw-medium bigger-font">Federico</div>
-                           <div class="secondary-font">Ultimo messaggio inviato</div>
-                        </div>
-                     </div>
-                     <div class="secondary-font">
-                        12:00
-                     </div>                     
-                  </div>
-
-                  <div class="border-top py-2 px-3 d-flex justify-content-between">
-                     <div class="d-flex">
-                        <img src="./assets/img/avatar_8.jpg" class="avatar me-2" alt="avatar">
-                        <div>
-                           <div class="fw-medium bigger-font">Davide</div>
+                           <div class="fw-medium bigger-font">{{contact.name}}</div>
                            <div class="secondary-font">Ultimo messaggio inviato</div>
                         </div>
                      </div>
@@ -196,7 +105,31 @@
             <div class="d-flex flex-column current-chat-container">
 
                <!-- Chat with messagges -->
-               <div class="current-chat overflow-auto">
+               <div class="current-chat overflow-auto px-5">
+
+                  <!-- Messagge Sent template -->
+                  <div class="d-flex justify-content-end my-2">
+                     <div class="messagge-sent rounded-2 d-flex justify-content-between">
+                        <div class="mx-3 my-2 bigger-font">
+                           Messaggio inviato
+                        </div>
+                        <div class="secondary-font align-self-end me-1">
+                           15:30
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Messagge Received template -->
+                  <div class="d-flex justify-content-start my-2">
+                     <div class="bg-white rounded-2 d-flex justify-content-between">
+                        <div class="mx-3 my-2 bigger-font">
+                           Messaggio ricevuto
+                        </div>
+                        <div class="secondary-font align-self-end me-1">
+                           15:30
+                        </div>
+                     </div>
+                  </div>
                   
                </div>
 

@@ -133,4 +133,8 @@ i{
       color: var(--bz-bar-down-icon);
    }
 }
+
+.messagge-sent{
+   background-color: var(--bz-message-sent);
+}
 /*#endregion Main*/
