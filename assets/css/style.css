@@ -9,6 +9,7 @@
    --bz-bg-search-bar: #fbfafb;
    --bz-bg-sidebar: #ffffff;
    --bz-bar-down: #f2efea;
+   --bz-bar-down-icon: #6a7276;
    --bz-message-sent: #d5f8bb;
    --bz-messagge-received: #ffffff;
    --bz-font: 'Roboto', sans-serif;
@@ -100,7 +101,7 @@ i{
    background-color: var(--bz-bg-search-bar);
 }
 
-.search-bar{
+.search-bar, .text-bar{
    font-size: var(--bz-font-size);
    font-weight: 500;
 }
@@ -108,5 +109,28 @@ i{
 .search-icon{
    font-size: 0.8rem;
    font-weight: bold;
+}
+
+.last-access{
+   color: var(--bz-secondary-text);
+   font-size: var(--bz-font-size);
+}
+
+.current-chat-container{
+   height: calc(100% - 3rem);
+}
+
+.current-chat{
+   background-image: url("/assets/img/mine.jpg");
+   height: 100%;
+}
+
+.bar-down{
+   height: 3rem;
+   background-color: var(--bz-bar-down);
+
+   & i{
+      color: var(--bz-bar-down-icon);
+   }
 }
 /*#endregion Main*/
