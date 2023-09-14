@@ -1,0 +1,84 @@
+/*#region Utilities*/
+:root{
+   --bz-secondary-text: #9b9b9b;
+   --bz-bg-up: #019788;
+   --bz-bg-down: #dbdbd2;
+   --bz-bar-up: #eaebeb;
+   --bz-icon: #b1b0b0;
+   --bz-notifications-banner: #8edbfd;
+   --bz-bg-sidebar: #ffffff;
+   --bz-bar-down: #f2efea;
+   --bz-message-sent: #d5f8bb;
+   --bz-messagge-received: #ffffff;
+   --bz-font: 'Roboto', sans-serif;
+   --bz-font-size: 0.6rem;
+   --bz-font-secondary-size: 0.5rem;
+   --bz-font-size-secondary: 0.5rem;
+}
+
+body{
+   font-family: var(--bz-font);
+   font-size: var(--bz-font-size);
+}
+
+#app{
+   background: linear-gradient(180deg, var(--bz-bg-up) 15%, var(--bz-bg-down) 15%);
+}
+
+main{
+   width: 1170px;
+   height: calc(100vh - 3rem);
+}
+
+i{
+   color: var(--bz-icon);
+   font-size: 1rem;
+}
+
+.secondary-font{
+   color: var(--bz-secondary-text);
+   font-size: var(--bz-font-secondary-size);
+}
+/*#endregion Utilities*/
+
+
+
+/*#region Main*/
+.bar-up{
+   background-color: var(--bz-bar-up);
+   height: 3rem;
+}
+
+.left-side{
+   width: 35%;
+}
+
+.right-side{
+   width: 65%;
+}
+
+.avatar{
+   width: 2rem;
+   border-radius: 50%;
+}
+
+.notification-bg{
+   background-color: var(--bz-notifications-banner);
+}
+
+.notification-font{
+   font-size: var(--bz-font-secondary-size);
+   color: #474747;
+}
+
+.notification-icon{
+   width: 2rem;
+   aspect-ratio: 1;
+   border-radius: 50%;
+   background-color: white;
+}
+
+.notification-bell{
+   color: var(--bz-notifications-banner);
+}
+/*#endregion Main*/
