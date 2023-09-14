@@ -6,6 +6,7 @@
    --bz-bar-up: #eaebeb;
    --bz-icon: #b1b0b0;
    --bz-notifications-banner: #8edbfd;
+   --bz-bg-search-bar: #fbfafb;
    --bz-bg-sidebar: #ffffff;
    --bz-bar-down: #f2efea;
    --bz-message-sent: #d5f8bb;
@@ -13,7 +14,7 @@
    --bz-font: 'Roboto', sans-serif;
    --bz-font-size: 0.6rem;
    --bz-font-secondary-size: 0.5rem;
-   --bz-font-size-secondary: 0.5rem;
+   --bz-font-size-bigger: 0.75rem; 
 }
 
 body{
@@ -39,6 +40,10 @@ i{
    color: var(--bz-secondary-text);
    font-size: var(--bz-font-secondary-size);
 }
+
+.bigger-font{
+   font-size: var(--bz-font-size-bigger);
+}
 /*#endregion Utilities*/
 
 
@@ -57,9 +62,18 @@ i{
    width: 65%;
 }
 
-.avatar{
+.avatar-self{
    width: 2rem;
    border-radius: 50%;
+}
+
+.avatar{
+   width: 2.5rem;
+   border-radius: 50%;
+}
+
+.chats-container{
+   height: calc(100% - 3rem);
 }
 
 .notification-bg{
@@ -80,5 +94,19 @@ i{
 
 .notification-bell{
    color: var(--bz-notifications-banner);
+}
+
+.bg-search-bar{
+   background-color: var(--bz-bg-search-bar);
+}
+
+.search-bar{
+   font-size: var(--bz-font-size);
+   font-weight: 500;
+}
+
+.search-icon{
+   font-size: 0.8rem;
+   font-weight: bold;
 }
 /*#endregion Main*/
