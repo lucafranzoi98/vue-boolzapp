@@ -169,49 +169,62 @@ createApp({
             }
         ],
         activeChat: 0,
-        activeInput: false,
-        input: "",
-        search: "",
+        activeInputMessage: false,
+        inputMessage: "",
+        activeInputSearch: false,
+        inputSearch: "",
       }
    },
    watch: {
-      // check if input field changes
-      input(newInput) {
+      // check if input MESSAGE field changes
+      inputMessage(newInput) {
         if (newInput != "") {
-         this.activeInput = true;
+         this.activeInputMessage = true;
         } else {
-         this.activeInput = false;
+         this.activeInputMessage = false;
         }
-      }
+      },
+
+      // check if input SEARCH field changes
+      inputSearch(newInput) {
+         if (newInput != "") {
+          this.activeInputSearch = true;
+         } else {
+          this.activeInputSearch = false;
+         }
+       }
    },
    computed: {
       filteredList() {
         return this.contacts.filter(contact => {
-          return contact.name.toLowerCase().includes(this.search.toLowerCase())
+          return contact.name.toLowerCase().includes(this.inputSearch.toLowerCase())
         })
       }
    },
    methods: {
       openChat(i){
          this.activeChat = i;
-         this.input = "";
+         this.inputMessage = "";
       },
       autoReply(DateTimeSent){
          return this.contacts[this.activeChat].messages.push({date: DateTimeSent, message: "Ok", status: "received"});
       },
-      sendMessage(input){
+      sendMessage(inputMessage){
          const DateTimeSent = DateTime.now().setLocale().toFormat("dd/MM/yyyy HH:mm:ss");
 
-         if (this.input.split(" ").join("") != "") {
-            this.contacts[this.activeChat].messages.push({date: DateTimeSent, message: input, status: "sent"});
+         if (this.inputMessage.split(" ").join("") != "") {
+            this.contacts[this.activeChat].messages.push({date: DateTimeSent, message: inputMessage, status: "sent"});
 
             setTimeout(this.autoReply, 1000, DateTimeSent);
-            this.input = "";
+            this.inputMessage = "";
          } 
       },
       convertDate(date){
          return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
-      }      
+      },
+      emptyField(){
+         this.inputSearch = "";
+      }
    }
 }).mount('#app')
 

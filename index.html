@@ -54,9 +54,10 @@
                </div>
 
                <!-- Search chat bar container -->
-               <div class="input-group p-1 bg-search-bar">
+               <div class="input-group p-1 bg-search-bar position-relative">
                   <span class="input-group-text bg-white rounded-0" id="search-bar"><i class="fa-solid fa-magnifying-glass"></i></span>
-                  <input type="text" class="form-control input-bar border-start-0 rounded-0" placeholder="Cerca o inizia una nuova chat" v-model="search">
+                  <input type="text" class="form-control input-bar border-start-0 rounded-0" placeholder="Cerca o inizia una nuova chat" v-model="inputSearch">
+                  <a href="#" v-if="activeInputSearch == true" @click="emptyField"><i class="fa-regular fa-circle-xmark delete-search"></i></a>
                 </div>
 
                <!-- Chats list container -->
@@ -122,10 +123,10 @@
                <!-- Text area -->
                <div class="bar-down d-flex justify-content-around align-items-center">
                   <a href="#"><i class="fa-regular fa-face-smile"></i></a>
-                  <input type="text" id="messagge-input" class="form-control w-75 h-75 border-0 input-bar" placeholder="Scrivi un messaggio" v-model="input" @keyup.enter="sendMessage(input)">
+                  <input type="text" class="form-control w-75 h-75 border-0 input-bar" placeholder="Scrivi un messaggio" v-model="inputMessage" @keyup.enter="sendMessage(inputMessage)">
 
-                  <a href="#" v-if="activeInput == false"><i class="fa-solid fa-microphone"></i></a>
-                  <a href="#" @click="sendMessage(input)" v-else ><i class="fa-solid fa-paper-plane"></i></a>
+                  <a href="#" v-if="activeInputMessage == false"><i class="fa-solid fa-microphone"></i></a>
+                  <a href="#" @click="sendMessage(inputMessage)" v-else ><i class="fa-solid fa-paper-plane"></i></a>
                </div>
             </div>
 
