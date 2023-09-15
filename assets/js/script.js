@@ -169,6 +169,7 @@ createApp({
             }
         ],
         activeChat: 0,
+        activeInput: false
       }
    },
    methods: {
@@ -178,7 +179,6 @@ createApp({
       autoReply(DateTimeSent){
          return this.contacts[this.activeChat].messages.push({date: DateTimeSent, message: "Ok", status: "received"});
       },
-
       sendMessage(input){
          const DateTimeSent = DateTime.now().setLocale().toFormat("dd/MM/yyyy HH:mm:ss");
 
@@ -191,6 +191,9 @@ createApp({
       },
       convertDate(date){
          return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
+      },
+      onFocus(){
+         this.activeInput = !this.activeInput;
       }
    }
 }).mount('#app')

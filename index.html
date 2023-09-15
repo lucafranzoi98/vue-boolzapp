@@ -122,8 +122,10 @@
                <!-- Text area -->
                <div class="bar-down d-flex justify-content-around align-items-center">
                   <a href="#"><i class="fa-regular fa-face-smile"></i></a>
-                  <input type="text" id="messagge-input" class="form-control w-75 h-75 border-0 input-bar" placeholder="Scrivi un messaggio" v-model="input" @keyup.enter="sendMessage(input)">
-                  <a href="#"><i class="fa-solid fa-microphone"></i></a>
+                  <input type="text" id="messagge-input" class="form-control w-75 h-75 border-0 input-bar" placeholder="Scrivi un messaggio" v-model="input" @keyup.enter="sendMessage(input)" @focus="onFocus" @blur="onFocus">
+
+                  <a href="#" v-if="activeInput == false"><i class="fa-solid fa-microphone"></i></a>
+                  <a href="#" v-else><i class="fa-solid fa-paper-plane"></i></a>
                </div>
             </div>
 
