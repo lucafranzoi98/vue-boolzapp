@@ -14,6 +14,8 @@
    --bz-font-secondary-size: 0.6rem;
    --bz-font-size: 0.75rem;
    --bz-secondary-text: #9b9b9b;
+   --bz-bg-active-chat-list: #e6e6e6;
+   --bz-bg-hover-chat-list: #f2f2f2;
 }
 
 main{
@@ -93,6 +95,10 @@ i{
                font-size: 0.8rem;
             }
          }
+
+         & #chats-list-container > div:hover{
+            background-color: var(--bz-bg-hover-chat-list);
+         }
       }
    }
 
@@ -105,10 +111,6 @@ i{
          & .current-chat-bg{
             background-image: url("/assets/img/mine.jpg");
             height: 100%;
-
-            & .messagge-sent{
-               background-color: var(--bz-message-sent);
-            }
          }
 
          & .bar-down{
@@ -123,3 +125,16 @@ i{
    }
 }
 /*#endregion Main*/
+
+
+/* #region Js */
+
+.bg-chat-active-list{
+   background-color: var(--bz-bg-active-chat-list);
+}
+
+.message-sent{
+   background-color: var(--bz-message-sent);
+}
+
+/* #endregion Js */

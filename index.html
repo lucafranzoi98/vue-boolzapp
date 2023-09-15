@@ -60,10 +60,10 @@
                 </div>
 
                <!-- Chats list container -->
-               <div class="overflow-auto">
+               <div class="overflow-auto" id="chats-list-container">
 
                   <!-- Chat template -->
-                  <div v-for="(contact, index) in contacts" class="border-top py-2 px-3 d-flex justify-content-between">
+                  <div v-for="(contact, i) in contacts" class="border-top py-2 px-3 d-flex justify-content-between" @click="openChat(i)" :class="activeChat == i ? 'bg-chat-active-list' : '' ">
                      <div class="d-flex">
                         <img :src="contact.avatar" class="avatar me-2" :alt="contact.name">
                         <div>
@@ -87,9 +87,9 @@
             <!-- Up bar -->
             <div class="bar-up d-flex justify-content-between align-items-center px-3">
                <div class="d-flex">
-                  <img src="./assets/img/avatar_1.jpg" class="avatar avatar-sm me-2" alt="avatar">
+                  <img :src="contacts[activeChat].avatar" class="avatar avatar-sm me-2" alt="avatar">
                   <div>
-                     <div class="font-size mb-1">Michele</div>
+                     <div class="font-size mb-1">{{contacts[activeChat].name}}</div>
                      <div class="secondary-font">Ultimo accesso oggi alle 12:00</div>
                   </div>
                </div>
@@ -105,32 +105,18 @@
             <div class="d-flex flex-column current-chat-container">
 
                <!-- Chat with messagges -->
-               <div class="current-chat-bg overflow-auto px-5">
+               <div class="current-chat-bg overflow-auto px-5 d-flex flex-column py-2 gap-2">
 
-                  <!-- Messagge Sent template -->
-                  <div class="d-flex justify-content-end my-2">
-                     <div class="messagge-sent rounded-2 d-flex justify-content-between">
-                        <div class="mx-3 my-2 font-size fw-normal">
-                           Messaggio inviato
-                        </div>
-                        <div class="secondary-font align-self-end me-1">
-                           15:30
-                        </div>
+                  <!-- Messagge -->               
+                  <div v-for="(message, i) in contacts[activeChat].messages" class="rounded-2 d-flex justify-content-between" :class="message.status == 'received' ? ['bg-white', 'align-self-start'] : ['message-sent', 'align-self-end']">
+                     <div class="mx-3 my-2 font-size fw-normal">
+                        {{message.message}}
+                     </div>
+                     <div class="secondary-font align-self-end me-1">
+                        {{message.date}}
                      </div>
                   </div>
 
-                  <!-- Messagge Received template -->
-                  <div class="d-flex justify-content-start my-2">
-                     <div class="bg-white rounded-2 d-flex justify-content-between">
-                        <div class="mx-3 my-2 font-size fw-normal">
-                           Messaggio ricevuto
-                        </div>
-                        <div class="secondary-font align-self-end me-1">
-                           15:30
-                        </div>
-                     </div>
-                  </div>
-                  
                </div>
 
                <!-- Text area -->

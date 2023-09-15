@@ -165,10 +165,14 @@ createApp({
                     }
                 ],
             }
-        ]
+        ],
+        activeChat: 0
       }
    },
    methods: {
-
+      openChat(i){
+         this.activeChat = i;
+         console.log(activeChat);
+      }
    }
 }).mount('#app')
