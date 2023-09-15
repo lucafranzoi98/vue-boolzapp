@@ -56,14 +56,14 @@
                <!-- Search chat bar container -->
                <div class="input-group p-1 bg-search-bar">
                   <span class="input-group-text bg-white rounded-0" id="search-bar"><i class="fa-solid fa-magnifying-glass"></i></span>
-                  <input type="text" class="form-control input-bar border-start-0 rounded-0" placeholder="Cerca o inizia una nuova chat">
+                  <input type="text" class="form-control input-bar border-start-0 rounded-0" placeholder="Cerca o inizia una nuova chat" v-model="search">
                 </div>
 
                <!-- Chats list container -->
                <div class="overflow-auto" id="chats-list-container">
 
                   <!-- Chat template -->
-                  <div v-for="(contact, i) in contacts" class="border-top py-2 px-3 d-flex justify-content-between" @click="openChat(i)" :class="activeChat == i ? 'bg-chat-active-list' : '' ">
+                  <div v-for="(contact, i) in filteredList" class="border-top py-2 px-3 d-flex justify-content-between" @click="openChat(i)" :class="activeChat == i ? 'bg-chat-active-list' : '' ">
                      <div class="d-flex">
                         <img :src="contact.avatar" class="avatar me-2" :alt="contact.name">
                         <div>

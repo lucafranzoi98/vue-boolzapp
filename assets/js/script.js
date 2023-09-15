@@ -171,6 +171,7 @@ createApp({
         activeChat: 0,
         activeInput: false,
         input: "",
+        search: "",
       }
    },
    watch: {
@@ -182,10 +183,18 @@ createApp({
          this.activeInput = false;
         }
       }
-    },
+   },
+   computed: {
+      filteredList() {
+        return this.contacts.filter(contact => {
+          return contact.name.toLowerCase().includes(this.search.toLowerCase())
+        })
+      }
+   },
    methods: {
       openChat(i){
          this.activeChat = i;
+         this.input = "";
       },
       autoReply(DateTimeSent){
          return this.contacts[this.activeChat].messages.push({date: DateTimeSent, message: "Ok", status: "received"});
