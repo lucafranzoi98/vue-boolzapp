@@ -1,3 +1,5 @@
+let DateTime= luxon.DateTime;
+
 const { createApp } = Vue
 
 createApp({
@@ -166,13 +168,23 @@ createApp({
                 ],
             }
         ],
-        activeChat: 0
+        activeChat: 0,        
+        DateTimeSent: DateTime.now().setLocale().toFormat("dd/MM/yyyy hh:mm:ss"),
       }
    },
    methods: {
       openChat(i){
          this.activeChat = i;
          console.log(activeChat);
+      },
+      sendMessage(input){
+         if (this.input.split(" ").join("") != "") {
+            this.contacts[this.activeChat].messages.push({date: this.DateTimeSent, message: input, status: "sent"});
+            this.input = "";
+         }         
+      },
+      convertDate(date){
+         return date = DateTime.fromFormat(date, "dd/MM/yyyy hh:mm:ss").toFormat("hh:mm");
       }
    }
 }).mount('#app')
