@@ -137,6 +137,12 @@ i{
          & .current-chat-bg{
             background-image: url("/assets/img/mine.jpg");
             height: 100%;
+
+
+            & .message-info{
+               right: 0;
+               width: 110px;
+            }
          }
 
          & .bar-down{

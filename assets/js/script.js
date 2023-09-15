@@ -173,6 +173,8 @@ createApp({
         inputMessage: "",
         activeInputSearch: false,
         inputSearch: "",
+        selectedMessage: -1,
+        displayOptions: false,
       }
    },
    watch: {
@@ -205,6 +207,7 @@ createApp({
       openChat(i){
          this.activeChat = i;
          this.inputMessage = "";
+         this.selectedMessage = -1;
       },
       autoReply(DateTimeSent){
          return this.contacts[this.activeChat].messages.push({date: DateTimeSent, message: "Ok", status: "received"});
@@ -224,6 +227,17 @@ createApp({
       },
       emptyField(){
          this.inputSearch = "";
+      },
+      hoverOnMessage(i){
+         this.selectedMessage = i;
+      },
+      hoverOutMessage(){
+         this.selectedMessage = -1;
+         this.displayOptions = false;
+      },
+      clickedOnMessage(i){
+         this.selectedMessage = i;
+         this.displayOptions = true;
       }
    }
 }).mount('#app')

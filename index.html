@@ -105,17 +105,35 @@
             <!-- Current chat container -->
             <div class="d-flex flex-column current-chat-container">
 
-               <!-- Chat with messagges -->
+               <!-- Chat with messages -->
                <div class="current-chat-bg overflow-auto px-5 d-flex flex-column py-2 gap-2">
 
-                  <!-- Messagge -->               
-                  <div v-for="(message, i) in contacts[activeChat].messages" class="rounded-2 d-flex justify-content-between" :class="message.status == 'received' ? ['bg-white', 'align-self-start'] : ['message-sent', 'align-self-end']">
+                  <!-- Message -->               
+                  <div v-for="(message, i) in contacts[activeChat].messages" class="rounded-2 d-flex justify-content-between" :class="message.status == 'received' ? ['bg-white', 'align-self-start'] : ['message-sent', 'align-self-end']" @mouseover="hoverOnMessage(i)" @mouseleave="hoverOutMessage" >
                      <div class="mx-3 my-2 font-size fw-normal">
                         {{message.message}}
                      </div>
-                     <div class="secondary-font align-self-end me-1">
-                        {{convertDate(message.date)}}
+
+                     <div class="secondary-font d-flex flex-column justify-content-end align-items-center">
+
+                        <!-- Icon options -->
+                        <div class="position-relative" :class="selectedMessage == i ? 'd-block' : 'd-none'">
+                           <a href="#" class="text-decoration-none secondary-font"  @click="clickedOnMessage(i)" ><i class="fa fa-chevron-down mt-1" aria-hidden="true"></i></a>
+
+                           <!-- Message Info -->
+                           <div class="bg-white py-3 message-info position-absolute shadow d-flex flex-column align-items-center" :class="displayOptions ? 'd-block' : 'd-none'">
+                              <div>
+                                 <div class="mb-2"><a href="#" class="text-decoration-none secondary-font">Message info</a></div>
+                                 <div><a href="#" class="text-decoration-none secondary-font">Delete message</a></div>
+                              </div>                              
+                           </div>
+                        </div>
+                        
+                        <div class="align-self-end me-1 mt-1">
+                           {{convertDate(message.date)}}
+                        </div>                        
                      </div>
+                     
                   </div>
 
                </div>
