@@ -169,9 +169,20 @@ createApp({
             }
         ],
         activeChat: 0,
-        activeInput: false
+        activeInput: false,
+        input: "",
       }
    },
+   watch: {
+      // check if input field changes
+      input(newInput) {
+        if (newInput != "") {
+         this.activeInput = true;
+        } else {
+         this.activeInput = false;
+        }
+      }
+    },
    methods: {
       openChat(i){
          this.activeChat = i;
@@ -191,10 +202,7 @@ createApp({
       },
       convertDate(date){
          return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
-      },
-      onFocus(){
-         this.activeInput = !this.activeInput;
-      }
+      }      
    }
 }).mount('#app')
 
