@@ -168,23 +168,30 @@ createApp({
                 ],
             }
         ],
-        activeChat: 0,        
-        DateTimeSent: DateTime.now().setLocale().toFormat("dd/MM/yyyy hh:mm:ss"),
+        activeChat: 0,
       }
    },
    methods: {
       openChat(i){
          this.activeChat = i;
-         console.log(activeChat);
       },
+      autoReply(DateTimeSent){
+         return this.contacts[this.activeChat].messages.push({date: DateTimeSent, message: "Ok", status: "received"});
+      },
+
       sendMessage(input){
+         const DateTimeSent = DateTime.now().setLocale().toFormat("dd/MM/yyyy HH:mm:ss");
+
          if (this.input.split(" ").join("") != "") {
-            this.contacts[this.activeChat].messages.push({date: this.DateTimeSent, message: input, status: "sent"});
+            this.contacts[this.activeChat].messages.push({date: DateTimeSent, message: input, status: "sent"});
+
+            setTimeout(this.autoReply, 1000, DateTimeSent);
             this.input = "";
-         }         
+         } 
       },
       convertDate(date){
-         return date = DateTime.fromFormat(date, "dd/MM/yyyy hh:mm:ss").toFormat("hh:mm");
+         return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
       }
    }
 }).mount('#app')
+
