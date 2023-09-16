@@ -241,7 +241,13 @@ createApp({
       },
       deleteMessage(i){
          this.contacts[this.activeChat].messages.splice(i, 1);
+      },
+      lastMessage(i, length){
+         return this.contacts[i].messages[length - 1].message;
+      },
+      lastMessageDate(i, length){
+         let date = this.contacts[i].messages[length - 1].date;
+         return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
       }
    }
 }).mount('#app')
-

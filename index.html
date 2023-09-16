@@ -63,17 +63,17 @@
                <!-- Chats list container -->
                <div class="overflow-auto" id="chats-list-container">
 
-                  <!-- Chat template -->
+                  <!-- Chat list template -->
                   <div v-for="(contact, i) in filteredList" class="border-top py-2 px-3 d-flex justify-content-between" @click="openChat(i)" :class="activeChat == i ? 'bg-chat-active-list' : '' ">
                      <div class="d-flex">
                         <img :src="contact.avatar" class="avatar me-2" :alt="contact.name">
                         <div>
                            <div class="font-size mb-1">{{contact.name}}</div>
-                           <div class="secondary-font">Ultimo messaggio inviato</div>
+                           <div class="secondary-font">{{lastMessage(i, contact.messages.length)}}</div>
                         </div>
                      </div>
                      <div class="secondary-font">
-                        12:00
+                        {{lastMessageDate(i, contact.messages.length)}}
                      </div>                     
                   </div>
 
