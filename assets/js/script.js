@@ -238,6 +238,9 @@ createApp({
       clickedOnMessage(i){
          this.selectedMessage = i;
          this.displayOptions = true;
+      },
+      deleteMessage(i){
+         this.contacts[this.activeChat].messages.splice(i, 1);
       }
    }
 }).mount('#app')

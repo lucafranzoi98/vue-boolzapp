@@ -124,7 +124,7 @@
                            <div class="bg-white py-3 message-info position-absolute shadow d-flex flex-column align-items-center" :class="displayOptions ? 'd-block' : 'd-none'">
                               <div>
                                  <div class="mb-2"><a href="#" class="text-decoration-none secondary-font">Message info</a></div>
-                                 <div><a href="#" class="text-decoration-none secondary-font">Delete message</a></div>
+                                 <div><a href="#" class="text-decoration-none secondary-font" @click="deleteMessage(i)">Delete message</a></div>
                               </div>                              
                            </div>
                         </div>
