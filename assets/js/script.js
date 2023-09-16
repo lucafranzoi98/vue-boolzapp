@@ -243,11 +243,41 @@ createApp({
          this.contacts[this.activeChat].messages.splice(i, 1);
       },
       lastMessage(i, length){
-         return this.contacts[i].messages[length - 1].message;
+         if (length < 1) {
+            return "";
+         } else {
+            return this.contacts[i].messages[length - 1].message;
+         }
+         
       },
       lastMessageDate(i, length){
-         let date = this.contacts[i].messages[length - 1].date;
+         if (length < 1) {
+            return "";
+         } else {
+            let date = this.contacts[i].messages[length - 1].date;
+            return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
+         }         
+      },
+      dateMessage(date){
+         return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("dd/MM/yyyy");
+      },
+      lastAccess(){
+         let length = this.contacts[this.activeChat].messages.length;
+         for (let i = length - 1; i >= 0; i--) {
+            let status = this.contacts[this.activeChat].messages[i].status;
+            if (status == "received") {               
+               let date = this.contacts[this.activeChat].messages[i].date;
+               return date;
+            }            
+         }
+      },
+      lastAccessHour(){
+         let date = this.lastAccess();
          return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
-      }
+      },
+      lastAccessDate(){
+         let date = this.lastAccess();
+         return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("dd/MM/yyyy");
+      },
    }
 }).mount('#app')
