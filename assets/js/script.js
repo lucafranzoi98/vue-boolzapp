@@ -268,16 +268,27 @@ createApp({
             if (status == "received") {               
                let date = this.contacts[this.activeChat].messages[i].date;
                return date;
-            }            
-         }
+            }
+         };
+         let date = "sconosciuto";
+         return date;
       },
       lastAccessHour(){
          let date = this.lastAccess();
-         return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
+         if (date == "sconosciuto") {
+            return "sconosciuto";
+         } else {
+            return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
+         }
+         
       },
       lastAccessDate(){
          let date = this.lastAccess();
-         return date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("dd/MM/yyyy");
+         if (date == "sconosciuto") {
+            return "";
+         } else {
+            return `alle ${date = DateTime.fromFormat(date, "dd/MM/yyyy HH:mm:ss").toFormat("dd/MM/yyyy")}`;
+         }         
       },
    }
 }).mount('#app')
